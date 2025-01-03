@@ -1,5 +1,4 @@
-package com.example.quizmaster.security;
-
+package com.example.learningPLatformBC.security;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 

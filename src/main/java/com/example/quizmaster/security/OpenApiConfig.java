@@ -1,4 +1,4 @@
-package com.example.quizmaster.security;
+package com.example.learningPLatformBC.security;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
@@ -11,21 +11,20 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @OpenAPIDefinition(
-        info = @Info(
-                title = "Quiz Master API",
-                version = "v1",
-                description = "API for managing quizzes, users, and admin activities in the QuizMaster application.",
-                contact = @Contact(name = "QuizMaster Support", url = "http://quizmaster.example.com",
-                        email = "support@quizmaster.example.com"),
-                license = @License(name = "MIT License", url = "https://opensource.org/licenses/MIT")
+        info = @Info(title = "Learning Platform ", version = "v1",
+                description = "This API just for learning Spring boot features",
+                contact = @Contact(name = " Asil bek ", url = "http://itcityacademy.uz", email = "asilabdihamidov@gmail.com"),
+                license = @License(name = "Apache Foundation", url = "https://apache.org/")
         ),
-        security = @SecurityRequirement(name = "Bearer")
+        security = {
+                @SecurityRequirement(  name = "Bearer")
+        }
 )
 @SecurityScheme(
         name = "Bearer",
         type = SecuritySchemeType.HTTP,
         bearerFormat = "JWT",
-        scheme = "bearer"
+        scheme = "Bearer"
 )
 public class OpenApiConfig {
 }

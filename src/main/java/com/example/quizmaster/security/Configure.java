@@ -1,6 +1,6 @@
-package com.example.quizmaster.security;
-import com.example.quizmaster.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+package com.example.learningPLatformBC.security;
+
+import com.example.learningPLatformBC.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,13 +11,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
 @Configuration
-@RequiredArgsConstructor
 public class Configure {
     private final UserRepository userRepository;
 
-
+    public Configure(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -26,7 +26,7 @@ public class Configure {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return email -> userRepository.findByEmail(email).orElseThrow();
+        return userRepository::findByEmail;
     }
 
     @Bean
